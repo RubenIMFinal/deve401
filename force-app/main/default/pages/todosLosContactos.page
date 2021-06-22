@@ -1,0 +1,23 @@
+<apex:page controller="todosLosContactosController">
+    <apex:form>
+        <apex:pageBlock title="Todos los contactos" id="lista_Contactos">
+            <apex:pageBlockTable value="{! Contacts}" var="ct">
+                <apex:column value="{!ct.id}"/>
+                <apex:column value="{!ct.firstName}">
+                    <apex:facet name="header">
+                        <apex:commandLink action= "{!orderPorNombre}" reRender="lista_Contactos">
+                         Nombre
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!ct.Email}">
+                    <apex:facet name="header">
+                        <apex:commandLink action= "{!orderPorEmail}" reRender="lista_Contactos">
+                         Email
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

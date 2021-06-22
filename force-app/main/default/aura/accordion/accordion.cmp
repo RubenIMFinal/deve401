@@ -1,0 +1,53 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Ross', 'value': 'option1'},
+    {'label': 'Rachel', 'value': 'option2'}
+    ]" />
+    <aura:attribute name="value" type="List" default="option1" />
+
+    <lightning:card footer="Card Footer" title="Hello">
+        <lightning:button onclick="{! c.handleShowActiveSectionName }" label="Show Active Section Name" />
+        <lightning:button onclick="{! c.handleSetActiveSectionC }" label="Open Section C" />
+
+        <lightning:accordion aura:id="accordion" activeSectionName="B">
+            <lightning:accordionSection name="A" label="Hola Mundo">
+                <c:helloWorld/>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="B" label="Record Form">
+                <lightning:recordEditForm aura:id="myform" objectApiName="Contact" onsubmit="{!c.handleSubmit}" onsuccess="{!c.handleSuccess}">
+                    <lightning:messages/>
+                    <lightning:inputField fieldName="FirstName" required="true" />
+                    <lightning:inputField fieldName="LastName" />
+                    <lightning:inputField fieldName="Title" />
+                    <lightning:inputField fieldName="Phone" />
+                    <lightning:inputField fieldName="Email" />
+                    <div class="slds-m-top_medium">
+                        <lightning:button label="Cancel" onclick="{!c.handleCancel}" />
+                        <lightning:button type="submit" label="Save Contact" variant="brand" />
+                    </div>
+                </lightning:recordEditForm>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="C" label="Carousel">
+                <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+                    <lightning:carouselImage src="/docs/component-library/app/images/examples/carousel-01.png" header="First Card" description="First card description." alternativeText="First card accessible description." href="https://www.salesforce.com">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage src="/docs/component-library/app/images/examples/carousel-02.png" header="Second Card" description="Second card description." alternativeText="Second card accessible description." href="https://www.salesforce.com">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage src="/docs/component-library/app/images/examples/carousel-03.png" header="Third Card" description="Third card description." alternativeText="Third card accessible description." href="https://www.salesforce.com">
+                    </lightning:carouselImage>
+                </lightning:carousel>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="D" label="CheckboxGroup">
+                <lightning:checkboxGroup name="Checkbox Group" label="Checkbox Group" options="{! v.options }" value="{! v.value }" onchange="{! c.handleChange }" />
+            </lightning:accordionSection>
+            <lightning:accordionSection name="E" label="ClickToDial">
+                <p>
+                    <lightning:clickToDial value="14155555551" />
+                </p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="F" label="DataTable">
+                <c:dataTable/>
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </lightning:card>
+</aura:component>

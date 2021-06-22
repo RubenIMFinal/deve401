@@ -1,0 +1,20 @@
+<apex:page standardController="contact">
+    <apex:form>
+        <apex:pageBlock title="Editar Contacto">
+            <apex:pageBlockSection>
+                <p>{! IF( DAY(TODAY()) < 15,
+                    'Before the 15th', 'The 15th or after') }</p>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!Contact.FirstName}"/>
+                <apex:inputField value="{!Contact.LastName}"/>
+                <apex:inputField value="{!Contact.Email}"/>
+                <apex:inputField value="{!Contact.Birthdate}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons>
+                <apex:commandButton action="{!save}" value="Guardar"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

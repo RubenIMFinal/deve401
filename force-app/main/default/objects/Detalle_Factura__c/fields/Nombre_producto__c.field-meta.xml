@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nombre_producto__c</fullName>
+    <externalId>false</externalId>
+    <label>Nombre producto</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arroz</fullName>
+                <default>false</default>
+                <label>Arroz</label>
+            </value>
+            <value>
+                <fullName>Baterias AAA</fullName>
+                <default>false</default>
+                <label>Baterias AAA</label>
+            </value>
+            <value>
+                <fullName>Chocolatina</fullName>
+                <default>false</default>
+                <label>Chocolatina</label>
+            </value>
+            <value>
+                <fullName>Pasta dental</fullName>
+                <default>false</default>
+                <label>Pasta dental</label>
+            </value>
+            <value>
+                <fullName>Salsa</fullName>
+                <default>false</default>
+                <label>Salsa</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
