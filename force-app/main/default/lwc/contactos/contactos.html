@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="My Contacto registro" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+            <p class="slds-m-bottom_small">
+                <lightning-input label="Nombre" onchange={handleKeyChange}></lightning-input>
+                <lightning-button label="buscar contactos" onclick={handleLoad}></lightning-button>
+            </p>
+            <template if:true={contacts}>
+                <template for:each={contacts} for:item="contact">
+                    <p key={contact.Id}>{contact.Name}</p>
+                </template>
+</template>
+</div>
+</lightning-card>
+</template>
