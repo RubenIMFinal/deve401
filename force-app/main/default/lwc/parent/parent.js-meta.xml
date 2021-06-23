@@ -7,4 +7,12 @@
         <target>lightning__AppPage</target>
         <target>lightning__HomePage</target>
     </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="prop1" type="String" />
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage, lightning__HomePage">
+            <property name="prop2" type="Boolean" />
+        </targetConfig>
+    </targetConfigs>
 </LightningComponentBundle>
