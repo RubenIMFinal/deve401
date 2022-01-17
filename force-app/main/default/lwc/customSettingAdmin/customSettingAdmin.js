@@ -2,6 +2,9 @@ import { LightningElement, wire } from 'lwc';
 import { getRecord } from 'lightning/uiRecordApi';
 //import getCustomSettings from '@salesforce/apex/CustomSettingHandler.getCustomSettings';
 
+//Autor: Rubén Izquierdo Molina.c/pathOnboarding
+//Pruebas para LWC de custom setting.
+
 const FIELDS = [
     'AdminStep__c.Activo__c',
     'AdminStep__c.Codigo_Paso__c',
