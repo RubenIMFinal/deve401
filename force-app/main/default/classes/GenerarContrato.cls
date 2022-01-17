@@ -4,6 +4,7 @@ global with sharing class GenerarContrato {
     //Clase que crea un contrato (pdf) y lo añade (attachment).
     //Actualiza el caso relacionado o de no existir, crea uno.
     //Crea y relaciona con la cuenta el objeto "Error" para poder registrar excepciones...
+    
 
 
     public static final String FORM_HTML_START = '<HTML><BODY>';
