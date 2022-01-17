@@ -11,6 +11,9 @@ import accPhone from '@salesforce/schema/Account.Phone';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from 'lightning/navigation';
 export default class pathOnboarding extends NavigationMixin(LightningElement) {
+
+    //Autor: Rubén Izquierdo Molina.c/pathOnboarding
+    //Pruebas y comprobaciones no definitivas de LWC.
  
     firstName = '';
     lastName = '';
