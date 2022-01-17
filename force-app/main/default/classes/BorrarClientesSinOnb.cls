@@ -4,6 +4,7 @@ public with sharing class BorrarClientesSinOnb {
     //Clase invocada desde el scheduled- trigger flow: "Flow Borrar Clientes sin Onb".
     //Comprueba entre todos los casos, cuáles cumplieron todos los pasos añadiendo sus identificaciones a una lista.
     //Tal lista será usada como filtro para borrar los diferentes registros relacionados a ella.
+    //
  
 
     @InvocableMethod(label='Borrar clientes sin Onb' description='Clase para borrar aquellos datos pertenecientes a procesos de onboarding no cerrados.')
