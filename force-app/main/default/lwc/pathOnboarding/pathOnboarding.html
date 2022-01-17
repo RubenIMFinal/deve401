@@ -1,0 +1,326 @@
+<template>
+  <lightning-card>
+    <div slot="title">
+      <h3> 
+            <lightning-icon icon-name="standard:contact" size="small"></lightning-icon> Proceso Onboarding          
+      </h3>
+    </div>
+    <div class="slds-grid slds-wrap">
+
+        <lightning-progress-indicator
+            current-step={currentStep}
+            type="base"
+            variant="base"
+        >
+        <!-- 
+            <lightning-progress-step
+                label="Step 1"  
+                value="1"
+            ></lightning-progress-step>
+            <lightning-progress-step
+                label="Step 2"
+                value="2"
+            ></lightning-progress-step>
+            <lightning-progress-step
+                label="Step 3"
+                value="3"
+            ></lightning-progress-step>
+        -->
+            <lightning-progress-step
+                label="Bienvenida"  
+                value="1"
+            ></lightning-progress-step>
+            <lightning-progress-step
+                label="Crear Cliente"
+                value="2"
+            ></lightning-progress-step>
+            <lightning-progress-step
+                label="Contrato"
+                value="3"
+            ></lightning-progress-step>
+            <lightning-progress-step
+                label="KYC"
+                value="4"
+            ></lightning-progress-step>
+           <!-- <lightning-progress-step
+                label="Call me back"
+                value="5"
+            ></lightning-progress-step>
+            <lightning-progress-step
+                label=" Recuperar proceso"
+                value="6"
+            ></lightning-progress-step>
+            <lightning-progress-step
+                label="Ya es cliente"
+                value="7"
+            ></lightning-progress-step>-->
+
+        </lightning-progress-indicator>
+
+
+        <lightning-record-edit-form object-api-name="Account">
+           <!-- <lightning-messages> </lightning-messages>-->
+
+            <div class="stepOne">
+
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                       Bienvenido/a
+                    </div>
+                </div>
+
+                <!--<lightning-input-field field-name="FirstName">
+                </lightning-input-field>-->
+                <lightning-button
+                    class="slds-m-top_small"
+                    label="Iniciar proceso"
+                    onclick={goToStepTwo}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-m-top_small"
+                    label="Call me back"
+                    onclick={callMeBack}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-m-top_small"
+                    label="Recuperar proceso"
+                    onclick={recuperarProceso}
+                ></lightning-button>
+
+            </div>
+
+            <div class="stepTwo slds-hide">
+                <div slot="title">
+                    <header>
+                        <h1>Datos Personales</h1>
+                    </header>
+                </div>
+ 
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                        <lightning-input label="First Name" value={firstName} onchange={accountChangeVal}></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                        <lightning-input label="Last Name" value={lastName} onchange={accountChangeVal}></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                  <div class="slds-form-element">
+                    <lightning-input label="Dni" value={dni} onchange={accountChangeVal} ></lightning-input>
+                  </div>
+                </div>                
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                        <lightning-input label="Email" value={emailId} onchange={accountChangeVal} ></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                  <div class="slds-form-element">
+                      <lightning-input label="Phone" value={phone} onchange={accountChangeVal} ></lightning-input>
+                  </div>
+                </div>
+              <!-- <lightning-input-field field-name="LastName">
+                </lightning-input-field>-->
+                <lightning-button
+                    class="slds-m-top_small"
+                    label="Previous"
+                    onclick={goBackToStepOne}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-m-top_small"
+                    label="Next"
+                    onclick={goToStepThree}
+                ></lightning-button>
+            </div>
+
+            <div class="stepThree slds-hide">
+                <div slot="title">
+                  <header>
+                      <h1>Contrato</h1>
+                  </header>
+                </div>
+
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                      <lightning-checkbox-group name="Condiciones contrato"
+                            label="Condiciones contrato"
+                            options={options}
+                            value={value}
+                            required>
+                      </lightning-checkbox-group>                    
+                    </div>
+                </div>
+
+              <!-- <lightning-input-field field-name="Email"> </lightning-input-field>-->
+                <lightning-button
+                    class="slds-m-top_small"
+                    label="Previous"
+                    onclick={goBackToStepTwo}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-m-top_small"
+                    label="Previous"
+                    onclick={goToStepFour}
+                ></lightning-button>
+                <!--<lightning-button
+                    class="slds-m-top_small"
+                    label="Save"
+                    type="submit"
+                    onclick={handleSave}
+                ></lightning-button>-->
+            </div>
+
+
+            <div class="stepFour slds-hide">
+              <div slot="title">
+                <header>
+                    <h1>KYC</h1>
+                </header>
+              </div>
+
+              <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                  <div class="slds-form-element">
+                        <!--display account data-->
+                  </div>
+              </div>
+
+            <!-- <lightning-input-field field-name="Email"> </lightning-input-field>-->
+              <lightning-button
+                  class="slds-m-top_small"
+                  label="Previous"
+                  onclick={goBackToStepThree}
+              ></lightning-button>
+              <!--<lightning-button
+                  class="slds-m-top_small"
+                  label="Save"
+                  type="submit"
+                  onclick={handleSave}
+              ></lightning-button>-->
+              <div slot="footer">
+                  <lightning-button label="Create Account Record" variant="brand" onclick={insertAccountAction}></lightning-button>        
+              </div>
+              
+          </div>
+
+          <div class="stepFive slds-hide">
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                   Introduzca teléfono.
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+              <div class="slds-form-element">
+                  <lightning-input label="Phone" value={phone} onchange={accountChangeVal} ></lightning-input>
+              </div>
+            </div>
+            <lightning-button
+                class="slds-m-top_small"
+                label="Volver"
+                onclick={crearCallmeBack}
+            ></lightning-button>
+          </div>
+
+          <div class="stepSix slds-hide">
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                   Recuperar proceso.
+                </div>
+            </div>
+
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+              <div class="slds-form-element">
+                <lightning-input label="Dni" value={dni} onchange={accountChangeVal} ></lightning-input>
+              </div>
+            </div> 
+
+            <lightning-button
+                class="slds-m-top_small"
+                label="Volver"
+                onclick={recuperarProceso}
+            ></lightning-button>
+          </div>
+
+
+          <div class="stepSeven slds-hide">
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    Ya tiene una cuenta contratada asociada a ese Dni.
+                </div>
+            </div>
+            <lightning-button
+                class="slds-m-top_small"
+                label="Volver"
+                onclick={goToStepTwo}
+            ></lightning-button>
+          </div>            
+
+
+            
+        </lightning-record-edit-form>
+
+
+
+
+
+
+        <!--<lightning-card>
+            <div slot="title">
+              <h3> 
+                    <lightning-icon icon-name="standard:contact" size="small"></lightning-icon> Insert a Contact Record in LWC           
+              </h3>
+            </div>
+            <div class="slds-grid slds-wrap">
+
+              <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                  <div class="slds-form-element">
+                    <lightning-input label="First Name" value={firstName} onchange={contactChangeVal}></lightning-input>
+                  </div>
+              </div>
+
+              <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Last Name" value={lastName} onchange={contactChangeVal}></lightning-input>
+                </div>
+              </div>
+
+              <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Phone" value={phoneNo} onchange={contactChangeVal}></lightning-input>
+                </div>
+              </div>
+
+              <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Email" value={emailId} onchange={contactChangeVal} ></lightning-input>
+                </div>
+              </div>
+
+              <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Department" value={departmentVal} onchange={contactChangeVal} ></lightning-input>
+                </div>
+              </div>
+
+              <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                
+                <div class="slds-form-element">               
+                  <lightning-input label="Description" value={descriptionVal} onchange={contactChangeVal}></lightning-input>
+                </div>
+              </div>
+              
+          </div>
+        
+        
+
+        <div slot="footer">
+            <lightning-button label="Create Contact Record" variant="brand" onclick={insertContactAction}></lightning-button>        
+          </div>
+
+        <br/> <br/>
+
+        </lightning-card>-->
+    </div>
+  </lightning-card>      
+</template>

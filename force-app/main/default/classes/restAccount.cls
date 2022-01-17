@@ -3,7 +3,7 @@ global with sharing class restAccount {
    @HttpGET
    global static list<Account> getAccount()
    {
-       return [Select Id, Name, Dni__c, AccountNUmber From Account];
+       return [Select Id, Name,numDNI__c, Phone, Process_Type__c, AccountNUmber From Account where Name = 'prueba 4'];
    }
 
    @HttpPost
@@ -11,7 +11,7 @@ global with sharing class restAccount {
    {
        Account cliente = new Account();
         cliente.Name = Nombre;
-        cliente.Dni__c = DNI;
+        cliente.numDNI__c = DNI;
        insert cliente;
        return cliente;
    }
@@ -21,7 +21,7 @@ global with sharing class restAccount {
    {
         Account cliente = new Account();
         try{
-            cliente = [Select Name, id, DNI__c FROM Account Where DNI__c = :DNI];
+            cliente = [Select Name, id, numDNI__c FROM Account Where numDNI__c = :DNI];
             cliente.Name = Nombre;
             update cliente;
             return JSON.serializePretty(cliente);

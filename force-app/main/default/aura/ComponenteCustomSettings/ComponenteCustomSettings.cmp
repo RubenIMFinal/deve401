@@ -1,0 +1,36 @@
+<aura:component controller="ComponenteCustomSettingsApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  
+    <aura:attribute name="adminStepList" type="List" />    
+    <div class="slds slds-p-horizontal--medium">
+        <h2></h2>
+        <br/>
+        <table class="slds-table slds-table--bordered slds-table--col-bordered" style="width:50%; border:1px #ddd solid;">
+            <thead>
+                <tr style="background-color:#ddd;">
+                    <th style="background:#eee;">Activo__c</th>
+                    <th style="background:#eee;">Codigo_Paso__c</th>
+                    <th style="background:#eee;">Fecha_Fin__c</th>
+                    <th style="background:#eee;">Fecha_Inicio__c</th>
+                    <th style="background:#eee;">Pasos__c</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.adminStepList}" var="listItem"> 
+                    <tr>
+                        <td>{!listItem.Activo__c}</td>
+                        <td>{!listItem.Codigo_Paso__c}</td>
+                        <td>{!listItem.Fecha_Fin__c}</td>                   
+                        <td>{!listItem.Fecha_Inicio__c}</td>
+                        <td>{!listItem.Pasos__c}</td>
+
+                    </tr>
+                </aura:iteration>     
+            </tbody>
+        </table>
+       
+           <br/><br/>
+
+ 
+    </div>
+</aura:component>

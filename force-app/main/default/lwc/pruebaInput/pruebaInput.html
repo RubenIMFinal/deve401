@@ -1,0 +1,185 @@
+<template>
+    <lightning-progress-indicator
+        current-step={currentStep}
+        type="base"
+        variant="base"
+    >
+        <lightning-progress-step
+            label="Step 1"
+            value="1"
+        ></lightning-progress-step>
+        <lightning-progress-step
+            label="Step 2"
+            value="2"
+        ></lightning-progress-step>
+        <lightning-progress-step
+            label="Step 3"
+            value="3"
+        ></lightning-progress-step>
+        <lightning-progress-step
+        label="Step 4"
+        value="4"
+    ></lightning-progress-step>
+    </lightning-progress-indicator>
+
+
+    <lightning-record-edit-form object-api-name="Contact">
+        <lightning-messages> </lightning-messages>
+
+        <div class="stepOne">
+
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                  <lightning-input label="First Name" value={firstName} onchange={contactChangeVal}></lightning-input>
+                </div>
+            </div>
+
+            <!--<lightning-input-field field-name="FirstName">
+            </lightning-input-field>-->
+            <lightning-button
+                class="slds-m-top_small"
+                label="Next"
+                onclick={goToStepTwo}
+            ></lightning-button>
+
+        </div>
+
+        <div class="stepTwo slds-hide">
+
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Last Name" value={lastName} onchange={contactChangeVal}></lightning-input>
+                 </div>
+            </div>
+
+           <!-- <lightning-input-field field-name="LastName">
+            </lightning-input-field>-->
+            <lightning-button
+                class="slds-m-top_small"
+                label="Previous"
+                onclick={goBackToStepOne}
+            ></lightning-button>
+            <lightning-button
+                class="slds-m-top_small"
+                label="Next"
+                onclick={goToStepThree}
+            ></lightning-button>
+        </div>
+
+        <div class="stepThree slds-hide">
+
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Email" value={emailId} onchange={contactChangeVal} ></lightning-input>
+                 </div>
+            </div>
+
+           <!-- <lightning-input-field field-name="Email"> </lightning-input-field>-->
+            <lightning-button
+                class="slds-m-top_small"
+                label="Previous"
+                onclick={goBackToStepTwo}
+            ></lightning-button>
+            <!--<lightning-button
+                class="slds-m-top_small"
+                label="Save"
+                type="submit"
+                onclick={handleSave}
+            ></lightning-button>-->
+            <div slot="footer">
+                <lightning-button label="Create Contact Record" variant="brand" onclick={insertContactAction}></lightning-button>        
+            </div>
+            <lightning-button
+                class="slds-m-top_small"
+                label="Next"
+                onclick={goToStepFour}
+            ></lightning-button>
+        </div>
+
+
+
+
+        <div class="stepFour slds-hide">
+
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Last Name" value={lastName} onchange={contactChangeVal}></lightning-input>
+                 </div>
+            </div>
+
+           <!-- <lightning-input-field field-name="LastName">
+            </lightning-input-field>-->
+            <lightning-button
+                class="slds-m-top_small"
+                label="Previous"
+                onclick={goBackToStepThree}
+            ></lightning-button>
+            <div slot="footer">
+                <lightning-button label="Create Contact Record" variant="brand" onclick={insertContactAction}></lightning-button>        
+            </div>
+        </div>
+        
+    </lightning-record-edit-form>
+
+
+
+
+
+
+    <!--<lightning-card>
+        <div slot="title">
+          <h3> 
+                <lightning-icon icon-name="standard:contact" size="small"></lightning-icon> Insert a Contact Record in LWC           
+          </h3>
+        </div>
+        <div class="slds-grid slds-wrap">
+
+          <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+              <div class="slds-form-element">
+                <lightning-input label="First Name" value={firstName} onchange={contactChangeVal}></lightning-input>
+              </div>
+          </div>
+
+          <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input label="Last Name" value={lastName} onchange={contactChangeVal}></lightning-input>
+             </div>
+          </div>
+
+          <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input label="Phone" value={phoneNo} onchange={contactChangeVal}></lightning-input>
+             </div>
+          </div>
+
+          <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input label="Email" value={emailId} onchange={contactChangeVal} ></lightning-input>
+             </div>
+          </div>
+
+          <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input label="Department" value={departmentVal} onchange={contactChangeVal} ></lightning-input>
+             </div>
+          </div>
+
+          <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            
+            <div class="slds-form-element">               
+               <lightning-input label="Description" value={descriptionVal} onchange={contactChangeVal}></lightning-input>
+             </div>
+          </div>
+          
+      </div>
+     
+    
+
+     <div slot="footer">
+        <lightning-button label="Create Contact Record" variant="brand" onclick={insertContactAction}></lightning-button>        
+      </div>
+
+     <br/> <br/>
+
+    </lightning-card>-->
+</template>
