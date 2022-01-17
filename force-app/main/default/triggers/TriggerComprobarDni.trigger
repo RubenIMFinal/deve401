@@ -1,4 +1,7 @@
 trigger TriggerComprobarDni on Account (before update){ //, before insert) { 
+
+    //trigger para comprobar dni...
+    //
     Set<String> dniSet = new Set<String>();
 
     for (Account acc : trigger.new) {
