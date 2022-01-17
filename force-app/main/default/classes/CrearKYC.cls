@@ -3,6 +3,7 @@ public with sharing class CrearKYC {
     //Autor: Rubén Izquierdo Molina.
     //Clase para actualizar una cuenta según parámetros pasados.
     //Actualiza (o crea de no haber) el caso relacionado.
+    //
 
     public static void crearKYC(String dni, String sexo, String nacionalidad, String pais, Date fecha) {
 
