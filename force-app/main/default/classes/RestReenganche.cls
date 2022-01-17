@@ -4,6 +4,7 @@ global with sharing class RestReenganche {
     //Autor: Rubén Izquierdo Molina.
     //Clase para ser invocada por un servicio web de tipo get.
     //Toma los parámetros de la URl que pasará a la clase que invoca "Reenganche" para que realice su lógica.
+    
   
     @HttpGet
     global static Account restComprobarDni(){
