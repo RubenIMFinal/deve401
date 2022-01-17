@@ -5,6 +5,7 @@ public with sharing class Reenganche {
     //Si el caso existe, devuelve los códigos de errores especificados.
     //Si el caso no existe, se actualiza la cuenta y se relaciona a un error registrado.
     //Esta clase es invocada por la clase "RestReenganche".
+    
 
     public static Account comprobarDni(String dni, String valorOrigen){    
         System.debug('RIM dni: ' + dni);
