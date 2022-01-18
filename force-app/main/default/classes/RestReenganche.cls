@@ -11,6 +11,7 @@ global with sharing class RestReenganche {
 
         RestRequest restReq = RestContext.request;
         String dni = restReq.params.get('numDNI');
+        //String dni = '456';
         System.debug('RIM restReq dni: ' + dni);
         String valorOrigen = restReq.params.get('valorOrigen');
         System.debug('RIM restReq valor origen: ' + valorOrigen);

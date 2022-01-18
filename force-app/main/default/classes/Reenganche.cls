@@ -5,6 +5,7 @@ public with sharing class Reenganche {
     //Si el caso existe, devuelve los códigos de errores especificados.
     //Si el caso no existe, se actualiza la cuenta y se relaciona a un error registrado.
     //Esta clase es invocada por la clase "RestReenganche".
+    //
     
 
     public static Account comprobarDni(String dni, String valorOrigen){    
@@ -12,7 +13,7 @@ public with sharing class Reenganche {
         System.debug('RIM valorOrigen: ' + valorOrigen);
 
 
-        Account queryDni = [SELECT Id, Name, numDNI__c, Error__c, ErrorMsg__c, CodigoError__c, valorOrigen__c FROM Account WHERE numDNI__c =: dni]; //NO FUNCIONA DE FORMA DINÁMICA¿?
+        Account queryDni = [SELECT Id, Name, numDNI__c, Error__c, ErrorMsg__c, CodigoError__c, valorOrigen__c FROM Account WHERE numDNI__c =: dni]; 
         System.debug('RIM queryDni: ' + queryDni);
         String origenQuery = queryDni.valorOrigen__c;
         System.debug('RIM queryDni origenQuery: ' + origenQuery);
@@ -67,6 +68,8 @@ public with sharing class Reenganche {
             error.Error2__c = queryDni.Error__c;
             error.ErrorMsg2__c	= queryDni.ErrorMsg__c;
             error.CodigoError2__c = queryDni.CodigoError__c;
+            System.debug('RIM error: ' + error);
+
             insert error;
             return queryDni;
             
