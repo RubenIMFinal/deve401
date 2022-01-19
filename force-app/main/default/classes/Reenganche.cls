@@ -13,7 +13,7 @@ public with sharing class Reenganche {
         System.debug('RIM valorOrigen: ' + valorOrigen);
 
 
-        Account queryDni = [SELECT Id, Name, numDNI__c, Error__c, ErrorMsg__c, CodigoError__c, valorOrigen__c FROM Account WHERE numDNI__c =: dni]; 
+        Account queryDni = [SELECT Id, Name, LastName__c, numDNI__c, PersonEmail__c, Phone, Process_Type__c, Pasos__c, Error__c, ErrorMsg__c, CodigoError__c, valorOrigen__c FROM Account WHERE numDNI__c =: dni]; 
         System.debug('RIM queryDni: ' + queryDni);
         String origenQuery = queryDni.valorOrigen__c;
         System.debug('RIM queryDni origenQuery: ' + origenQuery);
