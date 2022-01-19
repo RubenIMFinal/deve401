@@ -31,9 +31,14 @@ public with sharing class Reenganche {
 
                 if (origenQuery.equals(valorOrigen)) { 
                     System.debug('RIM Cuenta con mismo origen');           
-                }else{                   
+                }else{  
+                    Account nuevaCuenta = new Account();
+                    nuevaCuenta.Name = queryDni.Name + 'Origen diferente';
+                    System.debug('RIM nueva cuenta: ' + nuevaCuenta);
+
+                    insert nuevaCuenta;                 
                     Case onbOrigenDiferente = new Case();
-                    onbOrigenDiferente.AccountId = queryDni.Id;
+                    onbOrigenDiferente.AccountId = nuevaCuenta.Id;
                     onbOrigenDiferente.SuppliedName = 'Nueva cuenta origen diferente';
 
                     System.debug('RIM onbOrigenDiferente: ' + onbOrigenDiferente);
