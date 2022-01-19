@@ -10,13 +10,13 @@ public with sharing class BorrarClientesSinOnb {
     @InvocableMethod(label='Borrar clientes sin Onb' description='Clase para borrar aquellos datos pertenecientes a procesos de onboarding no cerrados.')
     public static void metodoBorrarClientes(){
 
-        List<Case> queryOnb =[SELECT Id, Contrato_Aceptado__c, Tarea_Call_Me_Back__c, Telefono_Creado__c, Errores_Creados__c, Identificacion_Creada__c FROM Case];
+        List<Case> queryOnb =[SELECT Id, Contrato_Aceptado__c, Tarea_Call_Me_Back__c, Telefono_Creado__c, Errores_Creados__c, Identificacion_Creada__c, KYC_creado__c FROM Case];
 
         List<Id> casesToDelete = new List<Id>();
         List<Id> idAcc = new List<Id>();
 
         for (Case c : queryOnb) {
-            if(c.Contrato_Aceptado__c==false || c.Tarea_Call_Me_Back__c==false || c.Telefono_Creado__c==false || c.Errores_Creados__c==false || c.Identificacion_Creada__c==false){
+            if(c.Contrato_Aceptado__c==false || c.Tarea_Call_Me_Back__c==false || c.Telefono_Creado__c==false || c.Errores_Creados__c==false || c.Identificacion_Creada__c==false || c.KYC_creado__c){
                 casesToDelete.add(c.Id);
             }           
         }
