@@ -41,6 +41,7 @@ public with sharing class CrearKYC {
             onboarding.NacionalidadCliente__c  =nacionalidad;
             onboarding.PaisNacimientoCliente__c  =pais;
             onboarding.FechaNacimientoCliente__c  =fecha;
+            onboarding.KYC_creado__c = true;
 
             System.debug('RIM onboarding: ' + onboarding);
     
@@ -54,6 +55,8 @@ public with sharing class CrearKYC {
             newOnbrd.NacionalidadCliente__c  =nacionalidad;
             newOnbrd.PaisNacimientoCliente__c  =pais;
             newOnbrd.FechaNacimientoCliente__c  =fecha;
+            onboarding.KYC_creado__c = true;
+
             System.debug('RIM catch onbrd: ' + newOnbrd);
     
             insert newOnbrd;
