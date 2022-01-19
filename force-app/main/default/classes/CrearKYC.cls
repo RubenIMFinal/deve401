@@ -5,7 +5,7 @@ public with sharing class CrearKYC {
     //Actualiza (o crea de no haber) el caso relacionado.
     //
 
-    public static void crearKYC(String dni, String sexo, String nacionalidad, String pais, Date fecha) {
+    public static void crearKYC(String dni, String sexo, String nacionalidad, String pais, Date fecha, String processType, String landingVersion, String legalDocVersion, String pasos, String civilStatus , String OptInCode) {
 
         System.debug('RIM dni: ' + dni);
         System.debug('RIM sexo: ' + sexo);
@@ -21,6 +21,15 @@ public with sharing class CrearKYC {
         queryCliente.Nacionalidad__c = nacionalidad;
         queryCliente.Pais_nacimiento__c = pais;
         queryCliente.Fecha_de_nacimiento__c = fecha;
+        queryCliente.Process_Type__c = processType;
+        queryCliente.Landing_Version__c = landingVersion;
+        queryCliente.Legal_Documents_Version__c = legalDocVersion;
+        queryCliente.Pasos__c = pasos;
+        queryCliente.Civil_Status__c = civilStatus;
+        queryCliente.OptIn_Code__c = OptInCode;
+
+
+
         System.debug('RIM queryCliente: ' + queryCliente);
 
         update queryCliente;
