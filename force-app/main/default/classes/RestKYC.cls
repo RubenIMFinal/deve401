@@ -7,9 +7,9 @@ global with sharing class RestKYC {
 
 
     @HttpPatch
-    global static void metodoRestKYC(String dni, String sexo, String nacionalidad, String pais, Date fecha) {
+    global static void metodoRestKYC(String dni, String sexo, String nacionalidad, String pais, Date fecha, String processType, String landingVersion, String legalDocVersion, String pasos, String civilStatus , String OptInCode) {
 
-        CrearKYC.crearKYC(dni, sexo, nacionalidad, pais, fecha);
+        CrearKYC.crearKYC(dni, sexo, nacionalidad, pais, fecha, processType, landingVersion, legalDocVersion, pasos, civilStatus, OptInCode);
         System.debug('RIM rest crearkyc');
 
     }
