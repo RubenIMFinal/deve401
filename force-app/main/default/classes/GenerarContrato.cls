@@ -10,12 +10,19 @@ global with sharing class GenerarContrato {
     public static final String FORM_HTML_START = '<HTML><BODY>';
     public static final String FORM_HTML_END = '</BODY></HTML>';
 
-    global static void metodoContrato(Boolean newAccept, String dni) {
+    global static void metodoContrato(Boolean newAccept, String dni, String processType, String pasos, String landingVersion, String legalDocuments , Boolean contractDownloaded , Date contractDate) {
 
         Account account = [SELECT Id, Name, numDNI__c, Iaccepttheinformationpriorofcontracting__c, Account.IsDeleted FROM Account WHERE numDNI__c=: dni ];
         String pdfContent = '' + FORM_HTML_START;
 
         account.Iaccepttheinformationpriorofcontracting__c = newAccept;
+        account.Process_Type__c = processType ;
+        account.Pasos__c = pasos;
+        account.Landing_Version__c = landingVersion;
+        account.Legal_Documents_Version__c = legalDocuments ;
+        account.Contract_downloaded__c = contractDownloaded ;
+        account.Contract_down_date__c = contractDate;
+
         update account;
 
         if(newAccept == true){

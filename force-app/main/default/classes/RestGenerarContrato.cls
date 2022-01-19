@@ -7,8 +7,8 @@ global with sharing class RestGenerarContrato {
     //
 
     @HttpPatch
-    global static void restMetodoContrato(Boolean newAccept , String dni){
-        GenerarContrato.metodoContrato(newAccept , dni);
+    global static void restMetodoContrato(Boolean newAccept , String dni, String processType, String pasos, String landingVersion, String legalDocuments , Boolean contractDownloaded , Date contractDate){
+        GenerarContrato.metodoContrato(newAccept , dni, processType, pasos, landingVersion, legalDocuments , contractDownloaded , contractDate);
 
 
     }
