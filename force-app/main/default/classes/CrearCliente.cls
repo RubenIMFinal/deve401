@@ -8,7 +8,7 @@ public with sharing class CrearCliente {
     //
   
 
-    public static Account metodoCrearCliente(String firstName, String lastName, String dni, String email, String phone, String processType){
+    public static Account metodoCrearCliente(String firstName, String lastName, String dni, String email, String phone, String processType, String pasos, String landingVersion , String legalDocuments, String utmContent , String utmSource , String utmMedium, String utmTerm, String utmCampaign , String analyticsId , String idSession, URL googleLink ){
 
         Account cliente = new Account();
         cliente.Name = firstName;
@@ -17,6 +17,20 @@ public with sharing class CrearCliente {
         cliente.PersonEmail__c = email;
         cliente.Phone = phone;
         cliente.Process_Type__c = processType;
+
+        cliente.Pasos__c = pasos;
+        cliente.Landing_Version__c = landingVersion ;
+        cliente.Legal_Documents_Version__c = legalDocuments ;
+        cliente.ONB_utm_content__c = utmContent ;
+        cliente.ONB_utm_source__c = utmSource ;
+        cliente.ONB_utm_medium__c = utmMedium ;
+        cliente.ONB_utm_term__c = utmTerm ;
+        cliente.ONB_utm_campaign__c = utmCampaign ;
+        cliente.ONB_analytics__c = analyticsId ;
+        cliente.ONB_ID_Session__c = idSession ;
+        //cliente.ONB_Google_Analytics_Link__c = googleLink ;
+
+
 
         System.debug('RIM cliente: ' + cliente);
         insert cliente;
