@@ -1,8 +1,22 @@
 trigger TriggerComprobarDni on Account (before update){ //, before insert) { 
 
+    //Autor: Rubén Izquierdo Molina.
     //trigger para comprobar dni...
-    //
-    Set<String> dniSet = new Set<String>();
+    //invoca la clase "ComprobarDni".
+    
+    ComprobarDni.metodoComprobarDni(trigger.new);
+
+    System.debug('RIM trigger DNI trigger.new: ' + trigger.new);
+
+
+
+
+
+
+
+
+
+    /*Set<String> dniSet = new Set<String>();
 
     for (Account acc : trigger.new) {
         dniSet.add(acc.numDNI__c);
@@ -23,6 +37,6 @@ trigger TriggerComprobarDni on Account (before update){ //, before insert) {
             }
         }
         
-    }
+    }*/
 
 }
