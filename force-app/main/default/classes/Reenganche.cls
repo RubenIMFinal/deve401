@@ -63,7 +63,7 @@ public with sharing class Reenganche {
         }catch(System.QueryException e){
             System.debug('RIM else');
             queryOnbrdng.Errores_Creados__c = true;
-            update queryOnbrdng;
+            insert queryOnbrdng;
 
             //Account cuentaNoOnboarding = new Account();
             queryDni.Error__c = true;
