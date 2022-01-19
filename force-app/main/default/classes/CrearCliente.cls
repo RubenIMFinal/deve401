@@ -46,7 +46,7 @@ public with sharing class CrearCliente {
 
         newOnbrd.Cliente_Creado__c = true;
         newOnbrd.Telefono_Creado__c = true;
-        newOnbrd.Errores_Creados__c = true;
+        //newOnbrd.Errores_Creados__c = true;
         newOnbrd.Identificacion_Creada__c = true;
 
         System.debug('RIM newOnbrd: ' + newOnbrd);
