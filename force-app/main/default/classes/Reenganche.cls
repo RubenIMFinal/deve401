@@ -20,10 +20,12 @@ public with sharing class Reenganche {
         String idQuery = queryDni.Id;
         System.debug('RIM queryDni idQuery: ' + idQuery);
 
+        Case queryOnbrdng = new Case();
+
 
 
         try{
-            Case queryOnbrdng = [SELECT Id, AccountId, Contrato_Aceptado__c, Tarea_Call_Me_Back__c, Telefono_Creado__c, Errores_Creados__c, Identificacion_Creada__c FROM Case WHERE AccountId =: idQuery];
+            queryOnbrdng = [SELECT Id, AccountId, Contrato_Aceptado__c, Tarea_Call_Me_Back__c, Telefono_Creado__c, Errores_Creados__c, Identificacion_Creada__c FROM Case WHERE AccountId =: idQuery];
             System.debug('RIM queryOnbrdng: ' + queryOnbrdng);
             
             if(queryOnbrdng != null){
@@ -60,12 +62,15 @@ public with sharing class Reenganche {
 
         }catch(System.QueryException e){
             System.debug('RIM else');
+            queryOnbrdng.Errores_Creados__c = true;
+            update queryOnbrdng;
 
             //Account cuentaNoOnboarding = new Account();
             queryDni.Error__c = true;
             queryDni.ErrorMsg__c = 'Texto prueba "error".';
             queryDni.CodigoError__c = 404;
             update queryDni;
+            
             Error_Log__c error = new Error_Log__c();
             error.Name = 'Error de ' + queryDni.Name;
             error.Causante__c = queryDni.Name;
