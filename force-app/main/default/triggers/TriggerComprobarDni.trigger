@@ -3,6 +3,7 @@ trigger TriggerComprobarDni on Account (before update){ //, before insert) {
     //Autor: Rubén Izquierdo Molina.
     //trigger para comprobar dni...
     //invoca la clase "ComprobarDni".
+    //
     
     ComprobarDni.metodoComprobarDni(trigger.new);
 
