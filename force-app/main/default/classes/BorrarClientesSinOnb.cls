@@ -16,7 +16,7 @@ public with sharing class BorrarClientesSinOnb {
         List<Id> idAcc = new List<Id>();
 
         for (Case c : queryOnb) {
-            if(c.Contrato_Aceptado__c==false || c.Tarea_Call_Me_Back__c==false || c.Telefono_Creado__c==false || c.Errores_Creados__c==false || c.Identificacion_Creada__c==false || c.KYC_creado__c == false){
+            if(c.Contrato_Aceptado__c==false || c.Tarea_Call_Me_Back__c==false || c.Telefono_Creado__c==false ||  c.Identificacion_Creada__c==false || c.KYC_creado__c == false){ //c.Errores_Creados__c==false ||
                 casesToDelete.add(c.Id);
             }           
         }
