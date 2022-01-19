@@ -7,7 +7,7 @@ global with sharing class RestCrearCliente {
   //
 
     @HttpPost
-    global static void restMetodoCrearCliente(String name, String lastName, String dni, String email, String phone, String processType){// = '222222222'){
+    global static void restMetodoCrearCliente(String firstName, String lastName, String dni, String email, String phone, String processType, String pasos, String landingVersion , String legalDocuments, String utmContent , String utmSource , String utmMedium, String utmTerm, String utmCampaign , String analyticsId , String idSession){// = '222222222'){
 
       /*  String name = 'Cliente Rest';
         String lastName = 'LastName Rest';
@@ -15,7 +15,7 @@ global with sharing class RestCrearCliente {
         String email = 'restEmail@gmail.com';
         String phone = '222222222';*/
 
-        CrearCliente.metodoCrearCliente(name, lastName, dni, email, phone, processType);
+        CrearCliente.metodoCrearCliente(firstName, lastName, dni, email, phone, processType, pasos, landingVersion , legalDocuments, utmContent , utmSource , utmMedium, utmTerm, utmCampaign , analyticsId , idSession);
         System.debug('RIM RestCrearCliente');
 
     }

@@ -8,7 +8,7 @@ public with sharing class CrearCliente {
     //
   
 
-    public static Account metodoCrearCliente(String firstName, String lastName, String dni, String email, String phone, String processType, String pasos, String landingVersion , String legalDocuments, String utmContent , String utmSource , String utmMedium, String utmTerm, String utmCampaign , String analyticsId , String idSession, URL googleLink ){
+    public static Account metodoCrearCliente(String firstName, String lastName, String dni, String email, String phone, String processType, String pasos, String landingVersion , String legalDocuments, String utmContent , String utmSource , String utmMedium, String utmTerm, String utmCampaign , String analyticsId , String idSession){
 
         Account cliente = new Account();
         cliente.Name = firstName;
